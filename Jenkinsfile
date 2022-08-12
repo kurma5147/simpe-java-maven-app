@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Push Artifact to S3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://demo-swhizz-1'
+        sh 'aws s3 cp webapp/target/webapp.war s3://demodevops.tech'
       }
     }
     
@@ -40,7 +40,7 @@ pipeline {
     }
     stage('logging into docker hub') {
       steps {
-        sh 'docker login --username="phanirudra9" --password="9eb876d4@A"'
+        sh 'docker login --username="kurma5147" --password="9908475147"'
       }   
     }
     stage('pushing docker image to the docker hub with build number') {
@@ -56,7 +56,7 @@ pipeline {
 }
 post {
      always {
-       emailext to: 'nammimahesh01@gmail.com',
+       emailext to: 'kurma5147@gmail.com',
        attachLog: true, body: "Dear team pipeline is ${currentBuild.result} please check ${BUILD_URL} or PFA build log", compressLog: false,
        subject: "Jenkins Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
     }
