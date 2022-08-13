@@ -35,7 +35,7 @@ pipeline {
 //     }
     stage('building docker image from docker file by tagging') {
       steps {
-        sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
+        sh 'docker build -t  kurma5147/mavenimage:$BUILD_NUMBER .'
       }   
     }
     stage('logging into docker hub') {
@@ -45,7 +45,7 @@ pipeline {
     }
     stage('pushing docker image to the docker hub with build number') {
       steps {
-        sh 'docker push phanirudra9/phani9-devops:$BUILD_NUMBER'
+        sh 'docker push kurma5147/mavenimage:$BUILD_NUMBER'
       }   
     }
     stage('deploying the docker image into EC2 instance and run the container') {
