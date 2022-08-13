@@ -19,4 +19,4 @@
      ignore_errors: yes
 
    - name: Run a container from the pulled image
-     command: docker run -d --name phani-c1 -p 80:8080  kurma5147/mavenimage:"{{buildNumber}}"
+     command: docker run -d --name phani-c1 -p 8080:8083  kurma5147/mavenimage:"{{buildNumber}}"
