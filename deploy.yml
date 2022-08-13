@@ -3,12 +3,12 @@
   tasks:
    - name: Log into DockerHub
      docker_login:
-      username: phanirudra9
-      password: 9eb876d4@A
-      email: lprudra9@gmail.com
+      username: kurma5147
+      password: 9908475147
+      email: kurma5147@gmail.com
       
    - name: Pull image from docker hub
-     command: docker pull phanirudra9/phani9-devops:"{{buildNumber}}"
+     command: docker pull  kurma5147/mavenimage:"{{buildNumber}}"
 
    - name: Stop current running container
      command: docker stop phani-c1
@@ -19,4 +19,4 @@
      ignore_errors: yes
 
    - name: Run a container from the pulled image
-     command: docker run -d --name phani-c1 -p 80:8080 phanirudra9/phani9-devops:"{{buildNumber}}"
+     command: docker run -d --name phani-c1 -p 80:8080  kurma5147/mavenimage:"{{buildNumber}}"
