@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Push Artifact to S3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://rao5147'
+        sh 'aws s3 cp webapp/target/webapp.war s3://mavenartifacts'
       }
     }
     
@@ -35,7 +35,7 @@ pipeline {
 //     }
     stage('building docker image from docker file by tagging') {
       steps {
-        sh 'docker build -t  kurma5147/mavenimage:$BUILD_NUMBER .'
+        sh 'docker build -t   kurma5147/artifactimage:$BUILD_NUMBER .'
       }   
     }
     stage('logging into docker hub') {
@@ -45,7 +45,7 @@ pipeline {
     }
     stage('pushing docker image to the docker hub with build number') {
       steps {
-        sh 'docker push kurma5147/mavenimage:$BUILD_NUMBER'
+        sh 'docker push kurma5147/artifactimage:$BUILD_NUMBER'
       }   
     }
     stage('deploying the docker image into EC2 instance and run the container') {
