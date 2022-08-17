@@ -54,11 +54,11 @@ pipeline {
       }   
     }  
 }
-post {
-     always {
-       emailext to: 'kurma5147@gmail.com',
-       attachLog: true, body: "Dear team pipeline is ${currentBuild.result} please check ${BUILD_URL} or PFA build log", compressLog: false,
-       subject: "Jenkins Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
-    }
-}
+    stage('Emial Notifiacation'){
+      mail bcc: '', body: '''Hi team,
+Pipeline is sucessfull...
+
+Thanks and Regards,
+Kurmarao.''', cc: '', from: '', replyTo: '', subject: 'jenkinsjob', to: 'kurma5147@gmail.com'
+      }
 }
