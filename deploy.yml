@@ -8,15 +8,15 @@
       email: kurma5147@gmail.com
       
    - name: Pull image from docker hub
-     command: docker pull  kurma5147/mavenimage:"{{buildNumber}}"
+     command: docker pull  kurma5147/aritfactimage:"{{buildNumber}}"
 
    - name: Stop current running container
-     command: docker stop phani-c1
+     command: docker stop test-c1
      ignore_errors: yes
 
    - name: Remove stopped container
-     command: docker rm phani-c1
+     command: docker rm test-c1
      ignore_errors: yes
 
    - name: Run a container from the pulled image
-     command: docker run -d --name phani-c1 -p 8080:8083  kurma5147/mavenimage:"{{buildNumber}}"
+     command: docker run -d --name test-c1 -p 8080:8083  kurma5147/artifactimage:"{{buildNumber}}"
