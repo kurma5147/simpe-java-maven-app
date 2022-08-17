@@ -56,14 +56,7 @@ pipeline {
 }
   post{
     always{
-  
- stage('Emial Notifiacation'){
-      mail bcc: '', body: '''Hi team,
-      Pipeline is sucessfull...
-
-Thanks and Regards,
-Kurmarao.''', cc: '', from: '', replyTo: '', subject: 'jenkinsjob', to: 'kurma5147@gmail.com'
+      emailext body: 'Hi team', subject: 'Build Sucess', to: 'kurma5147@gmail.com'
       }
-}
   }
 }
