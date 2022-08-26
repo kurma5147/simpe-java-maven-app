@@ -22,6 +22,12 @@ pipeline {
         sh 'mvn clean install package'
       }
     }
+    stage('SonarQube analysis') {
+      steps{
+        withSonarQubeEnv('sonarqube-8.9') {
+        sh "mvn sonar:sonar"
+        }
+      }
     stage('Push Artifact to S3') {
       steps {
         sh 'aws s3 cp webapp/target/webapp.war s3://s3redhat'
