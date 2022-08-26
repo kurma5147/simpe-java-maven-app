@@ -28,6 +28,7 @@ pipeline {
         sh "mvn sonar:sonar"
         }
       }
+    }
     stage('Push Artifact to S3') {
       steps {
         sh 'aws s3 cp webapp/target/webapp.war s3://s3redhat'
